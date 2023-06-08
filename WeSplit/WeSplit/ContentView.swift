@@ -21,7 +21,7 @@ struct ContentView: View
     
                                                                                                                         
     
-    let tipPercentages = [10, 15, 20, 25, 0]
+    let tipPercentages = 0..<101
     
     var totalPerPerson: Double
     {
@@ -74,7 +74,7 @@ struct ContentView: View
                             Text($0, format: .percent)
                         }
                     }//picker
-                    .pickerStyle(.segmented)
+                    .pickerStyle(.navigationLink)
                 } header:
                     {
                         Text("How much tip do you want to leave?")
