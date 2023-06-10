@@ -21,7 +21,7 @@ struct ContentView: View
     
                                                                                                                         
     
-    let tipPercentages = [10, 15, 20, 25, 0]
+    let tipPercentages = 0..<101
     
     var totalPerPerson: Double
     {
@@ -40,10 +40,13 @@ struct ContentView: View
                                                                                                                         
     var body: some View
     {
+        
         NavigationView
         {
+            
             Form
             {
+                
                 Section
                 {
                     TextField("Amount", value: $checkAmount, format:
@@ -52,6 +55,8 @@ struct ContentView: View
                     //format changes it from default string to double
                     .keyboardType(.decimalPad)                                                                      //removes default letter keyboard for decimal
                     .focused($amountIsFocused)
+                    .foregroundColor(.green)
+        
                     
                     
                     
@@ -72,18 +77,22 @@ struct ContentView: View
                         ForEach(tipPercentages, id: \.self)                                                              //id: \.self = each item is unique and identify them
                         {
                             Text($0, format: .percent)
+                                .foregroundColor(($0 != 0) ? .blue : .red)
+                            
                         }
+                        
                     }//picker
-                    .pickerStyle(.segmented)
+                    .pickerStyle(.navigationLink)
                 } header:
-                    {
-                        Text("How much tip do you want to leave?")
-                    }// Tip Percentage
+                {
+                    Text("How much tip do you want to leave?")
+                }// Tip Percentage
                 
                 
                 Section
                 {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .foregroundColor(.blue)
                 } header:
                 {
                     Text("Per Person Amount")
@@ -93,6 +102,7 @@ struct ContentView: View
                 Section
                 {
                     Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .foregroundColor(.green)
                     
                 } header: {
                     Text("Total amount")
@@ -103,6 +113,7 @@ struct ContentView: View
                     let tipSelection = Double(tipPercentage)
                     let tipValue = checkAmount / 100 * tipSelection
                     Text(tipValue, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .foregroundColor(tipPercentage != 0 ? .black : .red )
                 }header: {
                     Text("Tip amount based onto total amount")
                 }
@@ -120,9 +131,10 @@ struct ContentView: View
                     }//button
                 }//group
             }//toolbar
-            
-            
+        
+           
         }//NavigationView
+    
     }//Body
 }//ContentView
 
