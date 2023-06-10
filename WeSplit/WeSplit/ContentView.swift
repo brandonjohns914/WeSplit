@@ -19,7 +19,7 @@ struct ContentView: View
     @State private var tipPercentage = 20
     @FocusState private var amountIsFocused: Bool
     
-                                                                                                                        
+    let localCurrency: FloatingPointFormatStyle<Double>.Currency = .currency(code: Locale.current.currency?.identifier ?? "USD")
     
     let tipPercentages = 0..<101
     
@@ -49,8 +49,7 @@ struct ContentView: View
                 
                 Section
                 {
-                    TextField("Amount", value: $checkAmount, format:
-                            .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    TextField("Amount", value: $checkAmount, format: localCurrency)
                     //$checkAmount now reads and writes
                     //format changes it from default string to double
                     .keyboardType(.decimalPad)                                                                      //removes default letter keyboard for decimal
@@ -91,7 +90,7 @@ struct ContentView: View
                 
                 Section
                 {
-                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    Text(totalPerPerson, format: localCurrency)
                         .foregroundColor(.blue)
                 } header:
                 {
@@ -101,7 +100,8 @@ struct ContentView: View
                 
                 Section
                 {
-                    Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    
+                    Text(checkAmount, format: localCurrency)
                         .foregroundColor(.green)
                     
                 } header: {
@@ -112,7 +112,7 @@ struct ContentView: View
                 {
                     let tipSelection = Double(tipPercentage)
                     let tipValue = checkAmount / 100 * tipSelection
-                    Text(tipValue, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    Text(tipValue, format: localCurrency)
                         .foregroundColor(tipPercentage != 0 ? .black : .red )
                 }header: {
                     Text("Tip amount based onto total amount")
