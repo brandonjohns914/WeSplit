@@ -19,25 +19,29 @@ struct ContentView: View
     @State private var tipPercentage = 20
     @FocusState private var amountIsFocused: Bool
     
+    
     let localCurrency: FloatingPointFormatStyle<Double>.Currency = .currency(code: Locale.current.currency?.identifier ?? "USD")
     
     let tipPercentages = 0..<101
     
+    var tipValue: Double
+    {
+        return checkAmount / 100 * Double(tipPercentage)
+    }
+    var grandTotal: Double
+    {
+        checkAmount + tipValue
+    }
     var totalPerPerson: Double
     {
-        let peopleCount = Double(numberOfPeople + 2)                                                                    //converting to double
-        let tipSelection = Double(tipPercentage)
-        
-        let tipValue = checkAmount / 100 * tipSelection
-        
-        let grandTotal = checkAmount + tipValue
-        
-        let amountPerPerson = grandTotal / peopleCount
-        
-        return amountPerPerson
+        grandTotal / Double(numberOfPeople + 2)
     }
     
-                                                                                                                        
+    var tipPerPerson: Double
+    {
+        tipValue / Double(numberOfPeople + 2)
+    }
+                                                       
     var body: some View
     {
         
@@ -87,36 +91,41 @@ struct ContentView: View
                     Text("How much tip do you want to leave?")
                 }// Tip Percentage
                 
+                Section
+                {
+                    Text(grandTotal, format: localCurrency)
+                        .foregroundColor(.green)
+                } header: {
+                    Text("Total Amount")
+                }
+                Section
+                {
+                    Text(tipValue, format: localCurrency)
+                        .foregroundColor(tipPercentage != 0 ? .blue : .red )
+                }header: {
+                    Text("Tip amount")
+                }
+                
+                Section
+                {
+                    Text(tipPerPerson, format: localCurrency)
+                        .foregroundColor(tipPercentage != 0 ? .blue : .red )
+                }header: {
+                    Text("Tip total per person")
+                }
+                
                 
                 Section
                 {
                     Text(totalPerPerson, format: localCurrency)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.green)
                 } header:
                 {
                     Text("Per Person Amount")
                 }
                 // Display Amount
                 
-                Section
-                {
-                    
-                    Text(checkAmount, format: localCurrency)
-                        .foregroundColor(.green)
-                    
-                } header: {
-                    Text("Total amount")
-                }
                 
-                Section
-                {
-                    let tipSelection = Double(tipPercentage)
-                    let tipValue = checkAmount / 100 * tipSelection
-                    Text(tipValue, format: localCurrency)
-                        .foregroundColor(tipPercentage != 0 ? .black : .red )
-                }header: {
-                    Text("Tip amount based onto total amount")
-                }
                 
             }//Form
             .navigationTitle("WeSplit")
