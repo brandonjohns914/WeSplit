@@ -11,6 +11,11 @@
 		417441452A313E65005D11B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417441442A313E65005D11B9 /* ContentView.swift */; };
 		417441472A313E67005D11B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417441462A313E67005D11B9 /* Assets.xcassets */; };
 		4174414A2A313E67005D11B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417441492A313E67005D11B9 /* Preview Assets.xcassets */; };
+		41C6613A2A57A51E00A57514 /* CreatingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C661392A57A51E00A57514 /* CreatingForm.swift */; };
+		41C6613D2A57A61700A57514 /* AddingNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6613C2A57A61700A57514 /* AddingNavigationBar.swift */; };
+		41C6613F2A57A72600A57514 /* ModifyingProgrammingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6613E2A57A72600A57514 /* ModifyingProgrammingState.swift */; };
+		41C661412A57A87F00A57514 /* BindingStateUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C661402A57A87F00A57514 /* BindingStateUI.swift */; };
+		41C661432A57A9DE00A57514 /* CreatingViewsInLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C661422A57A9DE00A57514 /* CreatingViewsInLoop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		417441442A313E65005D11B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		417441462A313E67005D11B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		417441492A313E67005D11B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		41C661392A57A51E00A57514 /* CreatingForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingForm.swift; sourceTree = "<group>"; };
+		41C6613C2A57A61700A57514 /* AddingNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingNavigationBar.swift; sourceTree = "<group>"; };
+		41C6613E2A57A72600A57514 /* ModifyingProgrammingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyingProgrammingState.swift; sourceTree = "<group>"; };
+		41C661402A57A87F00A57514 /* BindingStateUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingStateUI.swift; sourceTree = "<group>"; };
+		41C661422A57A9DE00A57514 /* CreatingViewsInLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingViewsInLoop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,7 @@
 			children = (
 				417441422A313E65005D11B9 /* WeSplitApp.swift */,
 				417441442A313E65005D11B9 /* ContentView.swift */,
+				41C6613B2A57A52400A57514 /* Tutorial */,
 				417441462A313E67005D11B9 /* Assets.xcassets */,
 				417441482A313E67005D11B9 /* Preview Content */,
 			);
@@ -65,6 +76,18 @@
 				417441492A313E67005D11B9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		41C6613B2A57A52400A57514 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				41C661392A57A51E00A57514 /* CreatingForm.swift */,
+				41C6613C2A57A61700A57514 /* AddingNavigationBar.swift */,
+				41C6613E2A57A72600A57514 /* ModifyingProgrammingState.swift */,
+				41C661402A57A87F00A57514 /* BindingStateUI.swift */,
+				41C661422A57A9DE00A57514 /* CreatingViewsInLoop.swift */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C6613F2A57A72600A57514 /* ModifyingProgrammingState.swift in Sources */,
+				41C661432A57A9DE00A57514 /* CreatingViewsInLoop.swift in Sources */,
+				41C6613D2A57A61700A57514 /* AddingNavigationBar.swift in Sources */,
+				41C6613A2A57A51E00A57514 /* CreatingForm.swift in Sources */,
 				417441452A313E65005D11B9 /* ContentView.swift in Sources */,
 				417441432A313E65005D11B9 /* WeSplitApp.swift in Sources */,
+				41C661412A57A87F00A57514 /* BindingStateUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
